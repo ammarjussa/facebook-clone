@@ -2,6 +2,7 @@ import React from "react";
 import "./App.css";
 import Header from "./components/Header";
 import Sidebar from "./components/Sidebar";
+import Feed from "./components/Feed";
 
 //REM Naming Comvention
 
@@ -12,7 +13,7 @@ function App() {
       {/* APP BODY */}
       <div className="app__body">
         <Sidebar />
-        {/* feed */}
+        <Feed/>
         {/* widget */}
       </div>
     </div>
