@@ -3,18 +3,13 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
+import { StateProvider } from "./Provider/StateProvider";
 
 ReactDOM.render(
   <React.StrictMode>
-    <div id="fb-root"></div>
-    <script
-      async
-      defer
-      crossOrigin="anonymous"
-      src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v8.0&appId=435112820428310&autoLogAppEvents=1"
-      nonce="mQ4nT6Uy"
-    ></script>
-    <App />
+    <StateProvider>
+      <App />
+    </StateProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );
