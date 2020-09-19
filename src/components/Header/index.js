@@ -12,8 +12,11 @@ import NotificationsActiveIcon from "@material-ui/icons/NotificationsActive";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 
 import { Avatar, IconButton } from "@material-ui/core";
+import { useStateValue } from "../../Provider/StateProvider";
 
 function Header() {
+  const [{ user }] = useStateValue();
+
   return (
     <div className="header">
       <div className="header__left">
@@ -23,7 +26,7 @@ function Header() {
         />
         <div className="header__input">
           <SearchIcon />
-          <input type="text" placeholder="Search Facebook"/>
+          <input type="text" placeholder="Search Facebook" />
         </div>
       </div>
 
@@ -47,8 +50,8 @@ function Header() {
 
       <div className="header__right">
         <div className="header__info">
-          <Avatar />
-          <h4>Ammar</h4>
+          <Avatar src={user.photoURL} />
+          <h4>{user.displayName}</h4>
         </div>
         <IconButton>
           <AddIcon />

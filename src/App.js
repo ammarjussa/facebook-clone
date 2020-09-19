@@ -4,12 +4,15 @@ import Header from "./components/Header";
 import Sidebar from "./components/Sidebar";
 import Feed from "./components/Feed";
 import Login from "./components/Login";
+import { useStateValue } from "./Provider/StateProvider";
 // import Widgets from "./components/Widgets";
 
 //REM Naming Comvention
 
 function App() {
-  const user = null;
+
+  const [{user}] = useStateValue()
+
   return (
     <div className="app">
       {!user ? (
