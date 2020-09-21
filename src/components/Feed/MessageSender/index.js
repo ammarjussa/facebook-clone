@@ -23,7 +23,7 @@ function MessageSender() {
       profilePic: user.photoURL,
       username: user.displayName,
       image: imageUrl,
-    });
+    })
 
     setInput("");
     setImageUrl("");

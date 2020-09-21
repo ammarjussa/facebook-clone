@@ -5,21 +5,19 @@ import { auth, provider } from "../../firebase";
 import { Button } from "@material-ui/core";
 
 import { useStateValue } from "../../Provider/StateProvider";
-import { actionTypes } from '../../Provider/reducer'
+import { actionTypes } from "../../Provider/reducer";
 
 function Login() {
-
-  const [state, dispatch] = useStateValue()
+  const [state, dispatch] = useStateValue();
 
   const signIn = () => {
     auth
       .signInWithPopup(provider)
       .then((result) => {
-
         dispatch({
           type: actionTypes.SET_USER,
-          user: result.user
-        })
+          user: result.user,
+        });
         console.log(result);
       })
       .catch((err) => alert(err.message));
@@ -38,9 +36,25 @@ function Login() {
         />
       </div>
 
-      <Button type="submit" onClick={signIn}>
-        Sign In
-      </Button>
+      <form className="login__form" method="post">
+        <input
+          className="login__input"
+          type="text"
+          placeholder="Email Address"
+          name="uname"
+          required
+        />
+        <input
+          className="login__input"
+          type="password"
+          placeholder="Password"
+          name="psw"
+          required
+        />
+        <Button type="submit" onClick={signIn}>
+          Log In
+        </Button>
+      </form>
     </div>
   );
 }

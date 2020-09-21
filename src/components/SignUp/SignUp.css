@@ -1,0 +1,17 @@
+.signup {
+    display: grid;
+    place-items: center;
+    height: 100vh;
+}
+
+
+.signup > div {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.signup > div > img {
+    object-fit: contain;
+    height: 150px;
+}
