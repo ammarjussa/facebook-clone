@@ -1,7 +1,34 @@
-import React from "react";
+import React, { useState } from "react";
 import "./SignUp.css";
+import { Button } from "@material-ui/core";
 
 function SignUp() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleEmailChange = (e) => {
+    e.preventDefault();
+    setEmail(e.target.value);
+  };
+
+  const handlePasswordChange = (e) => {
+    e.preventDefault();
+    setPassword(e.target.value);
+  };
+
+  const signIn = () => {
+    // auth
+    //   .signInWithPopup(provider)
+    //   .then((result) => {
+    //     dispatch({
+    //       type: actionTypes.SET_USER,
+    //       user: result.user,
+    //     });
+    //     console.log(result);
+    //   })
+    //   .catch((err) => alert(err.message));
+  };
+
   return (
     <div className="signup">
       <div className="signup__logo">
@@ -14,7 +41,37 @@ function SignUp() {
           alt="Facebook logo"
         />
       </div>
-    
+
+      <form className="login__form" method="post">
+        <input
+          className="signup__input"
+          type="text"
+          placeholder="Email Address"
+          name="uname"
+          value={email}
+          onChange={handleEmailChange}
+          required
+        />
+        <input
+          className="signup__input"
+          type="password"
+          value={password}
+          placeholder="Password"
+          name="psw"
+          onChange={handlePasswordChange}
+          required
+        />
+        <input
+          className="signup__input"
+          type="password"
+          placeholder="Password"
+          name="psw"
+          required
+        />
+        <Button type="submit" onClick={signIn}>
+          Log In
+        </Button>
+      </form>
     </div>
   );
 }

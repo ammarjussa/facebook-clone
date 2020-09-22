@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Login.css";
 import { auth, provider } from "../../firebase";
 
@@ -9,6 +9,19 @@ import { actionTypes } from "../../Provider/reducer";
 
 function Login() {
   const [state, dispatch] = useStateValue();
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleEmailChange = (e) => {
+    e.preventDefault();
+    setEmail(e.target.value);
+  };
+
+  const handlePasswordChange = (e) => {
+    e.preventDefault();
+    setPassword(e.target.value);
+  };
 
   const signIn = () => {
     auth
@@ -42,13 +55,17 @@ function Login() {
           type="text"
           placeholder="Email Address"
           name="uname"
+          value={email}
+          onChange={handleEmailChange}
           required
         />
         <input
           className="login__input"
           type="password"
+          value={password}
           placeholder="Password"
           name="psw"
+          onChange={handlePasswordChange}
           required
         />
         <Button type="submit" onClick={signIn}>
