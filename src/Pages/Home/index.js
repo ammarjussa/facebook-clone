@@ -1,8 +1,8 @@
 import React from "react";
 
-import Header from "../Header";
-import Sidebar from "../Sidebar";
-import Feed from "../Feed";
+import Header from "../../components/Header";
+import Sidebar from "../../components/Sidebar";
+import Feed from "../../components/Feed";
 // import Widgets from "./Widgets";
 
 import { useStateValue } from "../../Provider/StateProvider";
