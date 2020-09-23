@@ -2,9 +2,8 @@ import React, { useState } from "react";
 import "./SignUp.css";
 import { Button } from "@material-ui/core";
 import { auth } from "../../firebase";
-import { useHistory } from "react-router-dom";
 
-function SignUp() {
+function SignUp({history}) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -24,6 +23,7 @@ function SignUp() {
       .createUserWithEmailAndPassword(email, password)
       .then((result) => {
         console.log(result);
+        history.push('/login')
       })
       .catch((err) => {
         alert(err.message);
@@ -71,7 +71,7 @@ function SignUp() {
         />
 
         <Button type="submit" onClick={signUp}>
-          Log In
+          SignUp
         </Button>
       </form>
     </div>

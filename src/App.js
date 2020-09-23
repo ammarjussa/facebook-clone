@@ -1,33 +1,23 @@
 import React from "react";
 import "./App.css";
-import Header from "./components/Header";
-import Sidebar from "./components/Sidebar";
-import Feed from "./components/Feed";
+
 import Login from "./components/Login";
 import SignUp from "./components/SignUp";
-import { useStateValue } from "./Provider/StateProvider";
-// import Widgets from "./components/Widgets";
+import Home from "./components/Home";
 
-//REM Naming Comvention
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+
+//BEM Naming Convention
 
 function App() {
-  const [{ user }] = useStateValue();
-
   return (
-    <div className="app">
-      {!user ? (
-        <SignUp />
-      ) : (
-        <>
-          <Header />
-          <div className="app__body">
-            <Sidebar />
-            <Feed />
-            {/* <Widgets/> */}
-          </div>
-        </>
-      )}
-    </div>
+    <BrowserRouter>
+      <Switch>
+        <Route path="/" exact component={SignUp} />
+        <Route path="/login" component={Login} />
+        <Route path="/home" component={Home} />
+      </Switch>
+    </BrowserRouter>
   );
 }
 

@@ -7,7 +7,7 @@ import { Button } from "@material-ui/core";
 import { useStateValue } from "../../Provider/StateProvider";
 import { actionTypes } from "../../Provider/reducer";
 
-function Login() {
+function Login({ history }) {
   const [state, dispatch] = useStateValue();
 
   const [email, setEmail] = useState("");
@@ -29,6 +29,7 @@ function Login() {
       .signInWithEmailAndPassword(email, password)
       .then((result) => {
         console.log(result);
+        history.push('/home')
       })
       .catch((err) => {
         alert(err.message);
