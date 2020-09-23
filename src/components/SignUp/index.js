@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import "./SignUp.css";
 import { Button } from "@material-ui/core";
+import { auth } from "../../firebase";
+import { useHistory } from "react-router-dom";
 
 function SignUp() {
   const [email, setEmail] = useState("");
@@ -16,17 +18,16 @@ function SignUp() {
     setPassword(e.target.value);
   };
 
-  const signIn = () => {
-    // auth
-    //   .signInWithPopup(provider)
-    //   .then((result) => {
-    //     dispatch({
-    //       type: actionTypes.SET_USER,
-    //       user: result.user,
-    //     });
-    //     console.log(result);
-    //   })
-    //   .catch((err) => alert(err.message));
+  const signUp = (e) => {
+    e.preventDefault();
+    auth
+      .createUserWithEmailAndPassword(email, password)
+      .then((result) => {
+        console.log(result);
+      })
+      .catch((err) => {
+        alert(err.message);
+      });
   };
 
   return (
@@ -46,6 +47,13 @@ function SignUp() {
         <input
           className="signup__input"
           type="text"
+          placeholder="Full Name"
+          name="name"
+          required
+        />
+        <input
+          className="signup__input"
+          type="text"
           placeholder="Email Address"
           name="uname"
           value={email}
@@ -61,14 +69,8 @@ function SignUp() {
           onChange={handlePasswordChange}
           required
         />
-        <input
-          className="signup__input"
-          type="password"
-          placeholder="Password"
-          name="psw"
-          required
-        />
-        <Button type="submit" onClick={signIn}>
+
+        <Button type="submit" onClick={signUp}>
           Log In
         </Button>
       </form>

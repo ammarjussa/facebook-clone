@@ -23,7 +23,19 @@ function Login() {
     setPassword(e.target.value);
   };
 
-  const signIn = () => {
+  const signIn = (e) => {
+    e.preventDefault();
+    auth
+      .signInWithEmailAndPassword(email, password)
+      .then((result) => {
+        console.log(result);
+      })
+      .catch((err) => {
+        alert(err.message);
+      });
+  };
+
+  const signInWithGoogle = () => {
     auth
       .signInWithPopup(provider)
       .then((result) => {
