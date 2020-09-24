@@ -3,9 +3,10 @@ import "./SignUp.css";
 import { Button } from "@material-ui/core";
 import { auth } from "../../firebase";
 
-function SignUp({history}) {
+function SignUp({ history }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [name, setName] = useState("");
 
   const handleEmailChange = (e) => {
     e.preventDefault();
@@ -17,13 +18,27 @@ function SignUp({history}) {
     setPassword(e.target.value);
   };
 
+  const handleNameChange = (e) => {
+    e.preventDefault();
+    setName(e.target.value);
+  };
+
   const signUp = (e) => {
     e.preventDefault();
     auth
       .createUserWithEmailAndPassword(email, password)
       .then((result) => {
-        console.log(result);
-        history.push('/login')
+        result.user
+          .updateProfile({
+            displayName: name,
+            photoURL: "https://example.com/jane-q-user/profile.jpg",
+          })
+          .then(function () {
+            history.push("/login");
+          })
+          .catch(function (error) {
+            alert(error.message);
+          });
       })
       .catch((err) => {
         alert(err.message);
@@ -49,6 +64,8 @@ function SignUp({history}) {
           type="text"
           placeholder="Full Name"
           name="name"
+          value={name}
+          onChange={handleNameChange}
           required
         />
         <input

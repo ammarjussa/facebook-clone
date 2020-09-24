@@ -28,8 +28,7 @@ function Login({ history }) {
     auth
       .signInWithEmailAndPassword(email, password)
       .then((result) => {
-        console.log(result);
-        history.push('/home')
+        history.push("/");
       })
       .catch((err) => {
         alert(err.message);

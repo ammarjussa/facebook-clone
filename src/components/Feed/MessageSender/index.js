@@ -20,10 +20,12 @@ function MessageSender() {
     db.collection("posts").add({
       message: input,
       timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-      profilePic: user.photoURL,
-      username: user.displayName,
+      profilePic: user
+        ? user.photoURL
+        : "https://scontent.fkhi4-1.fna.fbcdn.net/v/t1.0-1/p160x160/119741127_104766208049447_1835121773555063927_n.jpg?_nc_cat=103&_nc_sid=dbb9e7&_nc_eui2=AeGNDRiAVdxZ6yZ64m0SMEUarFAgzL5B8-esUCDMvkHz54bVZAZdzXaCbw14Qd6l1oaCrGFTcno1a8iHqraUtUQr&_nc_ohc=rkh3nuAOC_EAX9usbr3&_nc_ht=scontent.fkhi4-1.fna&tp=6&oh=45dfefb5eacdff75be1a54e1f82098ef&oe=5F9182D3",
+      username: user ? user.displayName : "Firebase User",
       image: imageUrl,
-    })
+    });
 
     setInput("");
     setImageUrl("");
@@ -32,14 +34,20 @@ function MessageSender() {
   return (
     <div className="messageSender">
       <div className="messageSender__top">
-        <Avatar src={user.photoURL} />
+        <Avatar
+          src={
+            user
+              ? user.photoURL
+              : "https://scontent.fkhi4-1.fna.fbcdn.net/v/t1.0-1/p160x160/119741127_104766208049447_1835121773555063927_n.jpg?_nc_cat=103&_nc_sid=dbb9e7&_nc_eui2=AeGNDRiAVdxZ6yZ64m0SMEUarFAgzL5B8-esUCDMvkHz54bVZAZdzXaCbw14Qd6l1oaCrGFTcno1a8iHqraUtUQr&_nc_ohc=rkh3nuAOC_EAX9usbr3&_nc_ht=scontent.fkhi4-1.fna&tp=6&oh=45dfefb5eacdff75be1a54e1f82098ef&oe=5F9182D3"
+          }
+        />
         <form>
           <input
             value={input}
             onChange={(e) => setInput(e.target.value)}
             className="messageSender__input"
             placeholder={`What's on your mind, ${
-              user.displayName.split(" ")[0]
+              user ? user.displayName.split(" ")[0] : "Firebase"
             }?`}
           ></input>
           <input
