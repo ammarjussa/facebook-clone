@@ -1,7 +1,8 @@
 .signup {
-    display: grid;
+    display: flex;
     place-items: center;
     height: 100vh;
+    flex-direction: column;
 }
 
 

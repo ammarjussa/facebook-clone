@@ -9,8 +9,6 @@ import "./Home.css";
 
 // import Widgets from "./Widgets";
 
-// import { useStateValue } from "../../Provider/StateProvider";
-
 function Home({ history }) {
   const [user, setUser] = useState({});
 
@@ -32,10 +30,10 @@ function Home({ history }) {
         <div>NO USER</div>
       ) : (
         <>
-          <Header />
+          <Header user={user} />
           <div className="home__body">
-            <Sidebar />
-            <Feed />
+            <Sidebar user={user} />
+            <Feed user={user} />
             {/* <Widgets/> */}
           </div>
         </>

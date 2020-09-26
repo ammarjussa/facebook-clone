@@ -1,13 +1,14 @@
 .login {
-  display: grid;
+  display: flex;
   place-items: center;
   height: 100vh;
+  flex-direction: column;
 }
 
 .login > div {
   display: flex;
   flex-direction: column;
-  margin-top: 40px;
+  margin-top: 20px;
 }
 
 .login > div > img {
@@ -30,8 +31,6 @@
 .login__form {
   display: flex;
   flex-direction: column;
-  margin-left: 40px;
-  margin-bottom: 70px;
   align-items: center;
 }
 
@@ -41,4 +40,19 @@
   border: 1px solid #ccd0d5;
   margin-bottom: 40px;
   width: 300px;
+}
+
+.login__google {
+  display: flex;
+  margin-top: 20px;
+  align-items: center;
+}
+
+.login__google > img {
+  margin-left: 20px;
+  cursor: pointer;
+}
+
+.login__link {
+  margin-top: 20px;
 }

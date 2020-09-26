@@ -12,11 +12,8 @@ import NotificationsActiveIcon from "@material-ui/icons/NotificationsActive";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 
 import { Avatar, IconButton } from "@material-ui/core";
-import { useStateValue } from "../../Provider/StateProvider";
 
-function Header() {
-  const [{ user }] = useStateValue();
-
+function Header({ user }) {
   return (
     <div className="header">
       <div className="header__left">

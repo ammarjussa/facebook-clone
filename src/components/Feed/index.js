@@ -5,7 +5,7 @@ import MessageSender from "./MessageSender";
 import Post from "./Post";
 import db from "../../firebase";
 
-function Feed() {
+function Feed({ user }) {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
@@ -16,21 +16,23 @@ function Feed() {
           snapshot.docs.map((doc) => ({ id: doc.id, data: doc.data() }))
         );
       });
-  });
+  }, [user]);
 
   return (
     <div className="feed">
-      <StoryReel />
-      <MessageSender />
+      <StoryReel user={user} />
+      <MessageSender user={user} />
 
       {posts.map((post) => (
         <Post
-          key={post.data.id}
+          key={post.id}
+          id={post.id}
           profilePic={post.data.profilePic}
           message={post.data.message}
           timestamp={post.data.timestamp}
           username={post.data.username}
           image={post.data.image}
+          likes={post.data.likes}
         />
       ))}
     </div>

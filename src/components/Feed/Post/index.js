@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Post.css";
 import { Avatar } from "@material-ui/core";
 
@@ -8,7 +8,27 @@ import NearMeIcon from "@material-ui/icons/NearMe";
 import ExpandMoreOutlinedIcon from "@material-ui/icons/ExpandMoreOutlined";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 
-function Post({ profilePic, image, username, timestamp, message }) {
+import db from "../../../firebase";
+import firebase from "firebase";
+
+function Post({ profilePic, image, username, timestamp, message, id, likes }) {
+  const [like, setLike] = useState(false);
+  const updateLike = (e) => {
+    e.preventDefault();
+    let likeDoc = db.collection("posts").doc(id);
+    if (like) {
+      setLike(false);
+      likeDoc.update({
+        likes: firebase.firestore.FieldValue.increment(-1),
+      });
+    } else {
+      setLike(true);
+      likeDoc.update({
+        likes: firebase.firestore.FieldValue.increment(1),
+      });
+    }
+  };
+
   return (
     <div className="post">
       <div className="post__top">
@@ -28,9 +48,9 @@ function Post({ profilePic, image, username, timestamp, message }) {
       </div>
 
       <div className="post__options">
-        <div className="post__op">
+        <div className="post__op" onClick={updateLike}>
           <ThumbUpIcon />
-          <p>Like</p>
+          <p>{likes} Likes</p>
         </div>
         <div className="post__op">
           <ChatBubbleOutlinedIcon />

@@ -3,6 +3,8 @@ import "./SignUp.css";
 import { Button } from "@material-ui/core";
 import { auth } from "../../firebase";
 
+import { Link } from "react-router-dom";
+
 function SignUp({ history }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -31,7 +33,8 @@ function SignUp({ history }) {
         result.user
           .updateProfile({
             displayName: name,
-            photoURL: "https://example.com/jane-q-user/profile.jpg",
+            photoURL:
+              "https://facebookbrand.com/wp-content/uploads/2019/04/f_logo_RGB-Hex-Blue_512.png?w=512&h=512",
           })
           .then(function () {
             history.push("/login");
@@ -90,6 +93,10 @@ function SignUp({ history }) {
         <Button type="submit" onClick={signUp}>
           SignUp
         </Button>
+
+        <div className="login__link">
+          <Link to="/login">Already a User? Click here to login.</Link>
+        </div>
       </form>
     </div>
   );

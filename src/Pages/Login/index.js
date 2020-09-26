@@ -7,6 +7,9 @@ import { Button } from "@material-ui/core";
 import { useStateValue } from "../../Provider/StateProvider";
 import { actionTypes } from "../../Provider/reducer";
 
+import GoogleIcon from "../../asset/google-icon.svg";
+import { Link } from "react-router-dom";
+
 function Login({ history }) {
   const [state, dispatch] = useStateValue();
 
@@ -28,6 +31,10 @@ function Login({ history }) {
     auth
       .signInWithEmailAndPassword(email, password)
       .then((result) => {
+        dispatch({
+          type: actionTypes.SET_USER,
+          user: result.user,
+        });
         history.push("/");
       })
       .catch((err) => {
@@ -43,7 +50,7 @@ function Login({ history }) {
           type: actionTypes.SET_USER,
           user: result.user,
         });
-        console.log(result);
+        history.push("/");
       })
       .catch((err) => alert(err.message));
   };
@@ -83,6 +90,20 @@ function Login({ history }) {
         <Button type="submit" onClick={signIn}>
           Log In
         </Button>
+        <div className="login__link">
+          <Link to="/signup">New User? Click to Sign Up</Link>
+        </div>
+
+        <div className="login__google">
+          <p>Sign in with Google?</p>
+          <img
+            onClick={signInWithGoogle}
+            height="30px"
+            weight="30px"
+            src={GoogleIcon}
+            alt="Google Icon"
+          />
+        </div>
       </form>
     </div>
   );

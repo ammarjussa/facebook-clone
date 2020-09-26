@@ -1,10 +1,8 @@
 import React from "react";
 import "./StoryReel.css";
 import Story from "./Story";
-import { useStateValue } from "../../../Provider/StateProvider";
 
-function StoryReel() {
-  const [{ user }] = useStateValue();
+function StoryReel({ user }) {
   return (
     <div className="storyReel">
       <Story
