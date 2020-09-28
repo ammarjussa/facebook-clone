@@ -13,6 +13,7 @@ import firebase from "firebase";
 
 function Post({ profilePic, image, username, timestamp, message, id, likes }) {
   const [like, setLike] = useState(false);
+
   const updateLike = (e) => {
     e.preventDefault();
     let likeDoc = db.collection("posts").doc(id);
