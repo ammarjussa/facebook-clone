@@ -42,7 +42,7 @@ function Sidebar({ user }) {
       <SidebarRow Icon={VideoLibraryIcon} title="Videos" />
       <SidebarRow Icon={ExpandMoreOutlinedIcon} title="See More" />
       <Button
-        style={{ backgroundColor: "blue", color: "white" }}
+        style={{ backgroundColor: "#2e81f4", color: "white" }}
         onClick={signOut}
       >
         Log Out

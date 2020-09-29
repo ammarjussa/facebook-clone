@@ -13,17 +13,20 @@ import firebase from "firebase";
 
 function Post({ profilePic, image, username, timestamp, message, id, likes }) {
   const [like, setLike] = useState(false);
+  const [color, setColor] = useState("gray");
 
   const updateLike = (e) => {
     e.preventDefault();
     let likeDoc = db.collection("posts").doc(id);
     if (like) {
       setLike(false);
+      setColor("gray");
       likeDoc.update({
         likes: firebase.firestore.FieldValue.increment(-1),
       });
     } else {
       setLike(true);
+      setColor("#2e81f4");
       likeDoc.update({
         likes: firebase.firestore.FieldValue.increment(1),
       });
@@ -49,7 +52,7 @@ function Post({ profilePic, image, username, timestamp, message, id, likes }) {
       </div>
 
       <div className="post__options">
-        <div className="post__op" onClick={updateLike}>
+        <div className="post__op" onClick={updateLike} style={{ color: color }}>
           <ThumbUpIcon />
           <p>{likes} Likes</p>
         </div>
