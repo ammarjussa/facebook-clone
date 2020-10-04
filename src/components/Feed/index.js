@@ -33,6 +33,7 @@ function Feed({ user }) {
           username={post.data.username}
           image={post.data.image}
           likes={post.data.likes}
+          user={user}
         />
       ))}
     </div>

@@ -9,9 +9,6 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 //BEM Naming Convention
 
-/* Button should turn blue and text underline when like is pressed. */
-/* Upon clicking again, button should return to normal. */
-/* Convert like to array of user who liked. Number of user should be shown in like button */
 /* Add Comments array similar to like but with field of comment */
 /* Advance: Try to implement push notification using firebase and show number on the notification icon as well*/
 

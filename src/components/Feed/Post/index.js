@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Post.css";
 import { Avatar } from "@material-ui/core";
 
@@ -9,26 +9,42 @@ import ExpandMoreOutlinedIcon from "@material-ui/icons/ExpandMoreOutlined";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 
 import db from "../../../firebase";
-import firebase from "firebase";
 
-function Post({ profilePic, image, username, timestamp, message, id, likes }) {
-  const [like, setLike] = useState(false);
+function Post({
+  profilePic,
+  image,
+  username,
+  timestamp,
+  message,
+  id,
+  likes,
+  user,
+}) {
+
   const [color, setColor] = useState("gray");
+
+  useEffect(() => {
+    if(likes.includes(user.uid)) {
+      setColor("#2e81f4")
+    }
+
+    else {
+      setColor("gray")
+    }
+  }, [likes, user])
 
   const updateLike = (e) => {
     e.preventDefault();
     let likeDoc = db.collection("posts").doc(id);
-    if (like) {
-      setLike(false);
+    if (likes.includes(user.uid)) {
       setColor("gray");
       likeDoc.update({
-        likes: firebase.firestore.FieldValue.increment(-1),
+        likes: likes.filter(like => like !== user.uid),
       });
     } else {
-      setLike(true);
       setColor("#2e81f4");
       likeDoc.update({
-        likes: firebase.firestore.FieldValue.increment(1),
+        likes: [...likes, user.uid],
       });
     }
   };
@@ -54,7 +70,7 @@ function Post({ profilePic, image, username, timestamp, message, id, likes }) {
       <div className="post__options">
         <div className="post__op" onClick={updateLike} style={{ color: color }}>
           <ThumbUpIcon />
-          <p>{likes} Likes</p>
+          <p>{likes.length} Likes</p>
         </div>
         <div className="post__op">
           <ChatBubbleOutlinedIcon />
