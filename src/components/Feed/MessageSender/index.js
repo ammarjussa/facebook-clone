@@ -24,6 +24,7 @@ function MessageSender({ user }) {
       username: user ? user.displayName : "Firebase User",
       image: imageUrl,
       likes: [],
+      comments: [],
     });
 
     setInput("");
@@ -50,12 +51,12 @@ function MessageSender({ user }) {
                 ? user.displayName.split(" ")[0]
                 : "Firebase"
             }?`}
-          ></input>
+          />
           <input
             value={imageUrl}
             onChange={(e) => setImageUrl(e.target.value)}
             placeholder="Image URL (Optional)"
-          ></input>
+          />
 
           <button onClick={handleSubmit} type="submit">
             Hidden Submit

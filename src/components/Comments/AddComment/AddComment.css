@@ -1,0 +1,65 @@
+.comment {
+  display: flex;
+  background-color: white;
+  padding: 9px 9px 10px 13px;
+  border-top: 1px solid lightgray;
+}
+
+.comment__avatar {
+  width: 10px;
+  height: 10px;
+}
+.comment__inputIcons {
+  display: flex;
+  width: 93%;
+  margin-left: 10px;
+  background-color: #eff2f5;
+  border-radius: 999px;
+}
+
+.comment__input {
+  outline-width: 0;
+  border: none;
+  padding: 5px 20px;
+  margin: 0 10px;
+  background-color: #eff2f5;
+
+  width: 70%;
+}
+
+.comment__iconSection {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #eff2f5;
+  border-radius: 999px;
+  flex: 1;
+}
+
+.comment__icons {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 0 5px;
+}
+
+.comment__icons--last {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 0px;
+}
+
+.comment__icons > .MuiSvgIcon-root {
+  color: gray;
+}
+.comment__icons--last > .MuiSvgIcon-root {
+  color: gray;
+}
+
+.comment__icons:hover > .MuiSvgIcon-root {
+  color: darkgrey;
+}
+.comment__icons--last:hover > .MuiSvgIcon-root {
+  color: darkgrey;
+}

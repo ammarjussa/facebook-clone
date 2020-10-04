@@ -47,7 +47,7 @@
 }
 
 .messageSender__options > h4 {
-  font-size: medium;
+  font-size: small;
   margin-left: 10px;
   cursor: pointer;
 }

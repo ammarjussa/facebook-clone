@@ -9,6 +9,7 @@ import ExpandMoreOutlinedIcon from "@material-ui/icons/ExpandMoreOutlined";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 
 import db from "../../../firebase";
+import AddComment from "../../Comments/AddComment";
 
 function Post({
   profilePic,
@@ -80,11 +81,8 @@ function Post({
           <NearMeIcon />
           <p>Share</p>
         </div>
-        <div className="post__op">
-          <AccountCircleIcon />
-          <ExpandMoreOutlinedIcon />
-        </div>
       </div>
+      <AddComment user={user}/>
     </div>
   );
 }
