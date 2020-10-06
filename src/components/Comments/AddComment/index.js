@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import "./AddComment.css";
 import { Avatar } from "@material-ui/core";
 
@@ -7,8 +7,15 @@ import CameraAltOutlinedIcon from "@material-ui/icons/CameraAltOutlined";
 import GifOutlinedIcon from "@material-ui/icons/GifOutlined";
 import SportsEsportsOutlinedIcon from "@material-ui/icons/SportsEsportsOutlined";
 
-const AddComment = ({ user }) => {
+const AddComment = ({ user, focus }) => {
   const [comment, setComment] = useState("");
+
+  const InputRef = useRef(null);
+
+  useEffect(() => {
+    // eslint-disable-next-line no-unused-expressions
+    if (focus) InputRef?.current?.focus();
+  }, [focus]);
 
   const handleComment = (e) => {
     e.preventDefault();
@@ -21,6 +28,7 @@ const AddComment = ({ user }) => {
 
       <div className="comment__inputIcons">
         <input
+          ref={InputRef}
           className="comment__input"
           value={comment}
           onChange={handleComment}

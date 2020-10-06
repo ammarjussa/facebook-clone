@@ -1,3 +1,54 @@
-.comment {
-    display: flex;
+.scomment {
+  display: flex;
+  align-items: center;
+  padding: 9px 9px 10px 13px;
+  border-top: 1px solid lightgray;
+}
+
+.scomment__avatar {
+  width: 7px;
+  height: 7px;
+}
+
+.scomment__div {
+  outline-width: 0;
+  border: none;
+  margin: 0 10px;
+  background-color: #eff2f5;
+  border-radius: 999px;
+  min-width: 200px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+}
+
+.scomment__div > h5 {
+  margin-left: 15px;
+  font-size: 14px;
+}
+
+.scomment__div > p {
+  margin-right: 30px;
+  margin-left: 10px;
+  font-size: 14px;
+}
+
+.scomment__something {
+  display: flex;
+  flex-direction: column;
+}
+
+.scomment__options3 {
+  display: flex;
+  margin-left: 25px;
+  margin-top: 10px;
+}
+
+.scomment__options3 > p {
+  font-size: 13px;
+}
+
+.scomment__options3--links {
+  color: blue;
+  margin-right: 10px;
 }

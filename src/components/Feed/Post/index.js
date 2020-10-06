@@ -10,6 +10,13 @@ import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 
 import db from "../../../firebase";
 import AddComment from "../../Comments/AddComment";
+import SingleComment from "../../Comments/SingleComment";
+
+/* Single Comment UI */
+/* Edit/Delete Post functionality */
+/* Storing comment in database */
+/* Edit/Delete comment functionality */
+/* Liking the comment. */
 
 function Post({
   profilePic,
@@ -21,18 +28,17 @@ function Post({
   likes,
   user,
 }) {
-
   const [color, setColor] = useState("gray");
 
-  useEffect(() => {
-    if(likes.includes(user.uid)) {
-      setColor("#2e81f4")
-    }
+  const [focus, setFocus] = useState(false);
 
-    else {
-      setColor("gray")
+  useEffect(() => {
+    if (likes.includes(user.uid)) {
+      setColor("#2e81f4");
+    } else {
+      setColor("gray");
     }
-  }, [likes, user])
+  }, [likes, user]);
 
   const updateLike = (e) => {
     e.preventDefault();
@@ -40,7 +46,7 @@ function Post({
     if (likes.includes(user.uid)) {
       setColor("gray");
       likeDoc.update({
-        likes: likes.filter(like => like !== user.uid),
+        likes: likes.filter((like) => like !== user.uid),
       });
     } else {
       setColor("#2e81f4");
@@ -73,7 +79,7 @@ function Post({
           <ThumbUpIcon />
           <p>{likes.length} Likes</p>
         </div>
-        <div className="post__op">
+        <div className="post__op" onClick={() => setFocus(true)}>
           <ChatBubbleOutlinedIcon />
           <p>Comment</p>
         </div>
@@ -82,7 +88,8 @@ function Post({
           <p>Share</p>
         </div>
       </div>
-      <AddComment user={user}/>
+      <SingleComment user={user} />
+      <AddComment user={user} focus={focus} />
     </div>
   );
 }

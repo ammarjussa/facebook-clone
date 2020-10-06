@@ -1,12 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 import "./SingleComment.css";
 
-const SingleComment = () => {
+import { Avatar } from "@material-ui/core";
+
+const SingleComment = ({ user }) => {
+  const [comments, setComments] = useState(["This is a comment"]);
+
   return (
-    <div className="comment">
-      {/* Avatar */}
-      {/* Grey Div(Same color as input) Containing Name and comment*/}
-      {/* Like button, reply button and timestamp */}
+    <div>
+      {comments.length ? (
+        <div className="scomment">
+          <Avatar className="scomment__savatar" src={user.photoURL} />
+
+          <div className="scomment__something">
+            <div className="scomment__div">
+              <h5>{user.displayName}</h5>
+              <p>{comments[0]}</p>
+            </div>
+
+            <div className="scomment__options3">
+              <p className="scomment__options3--links">Like</p>
+              <p className="scomment__options3--links">Reply</p>
+              <p>3m</p>
+            </div>
+          </div>
+        </div>
+      ) : null}
     </div>
   );
 };

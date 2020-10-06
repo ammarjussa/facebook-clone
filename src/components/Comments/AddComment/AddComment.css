@@ -6,8 +6,8 @@
 }
 
 .comment__avatar {
-  width: 10px;
-  height: 10px;
+  width: 8px;
+  height: 8px;
 }
 .comment__inputIcons {
   display: flex;
@@ -20,11 +20,11 @@
 .comment__input {
   outline-width: 0;
   border: none;
-  padding: 5px 20px;
+  padding: 5px;
   margin: 0 10px;
   background-color: #eff2f5;
-
   width: 70%;
+  height: 30px;
 }
 
 .comment__iconSection {
