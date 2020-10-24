@@ -4,7 +4,7 @@ import "./SingleComment.css";
 import { Avatar } from "@material-ui/core";
 
 const SingleComment = ({ user }) => {
-  const [comments, setComments] = useState(["This is a comment"]);
+  const [comments] = useState(["This is a comment"]);
 
   return (
     <div>

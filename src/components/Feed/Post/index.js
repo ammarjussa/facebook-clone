@@ -5,12 +5,10 @@ import { Avatar } from "@material-ui/core";
 import ThumbUpIcon from "@material-ui/icons/ThumbUp";
 import ChatBubbleOutlinedIcon from "@material-ui/icons/ChatBubbleOutlined";
 import NearMeIcon from "@material-ui/icons/NearMe";
-import ExpandMoreOutlinedIcon from "@material-ui/icons/ExpandMoreOutlined";
-import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 
 import db from "../../../firebase";
 import AddComment from "../../Comments/AddComment";
-import SingleComment from "../../Comments/SingleComment";
+// import SingleComment from "../../Comments/SingleComment";
 
 /* Single Comment UI */
 /* Edit/Delete Post functionality */
@@ -88,7 +86,7 @@ function Post({
           <p>Share</p>
         </div>
       </div>
-      <SingleComment user={user} />
+      {/* <SingleComment user={user} /> */}
       <AddComment user={user} focus={focus} />
     </div>
   );
