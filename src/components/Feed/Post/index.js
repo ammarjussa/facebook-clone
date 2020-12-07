@@ -8,7 +8,8 @@ import NearMeIcon from "@material-ui/icons/NearMe";
 
 import db from "../../../firebase";
 import AddComment from "../../Comments/AddComment";
-// import SingleComment from "../../Comments/SingleComment";
+import SingleComment from "../../Comments/SingleComment";
+import Comments from "../../Comments/dummyComments.json";
 
 /* Single Comment UI */
 /* Edit/Delete Post functionality */
@@ -25,6 +26,7 @@ function Post({
   id,
   likes,
   user,
+  comments,
 }) {
   const [color, setColor] = useState("gray");
 
@@ -86,8 +88,17 @@ function Post({
           <p>Share</p>
         </div>
       </div>
-      {/* <SingleComment user={user} /> */}
-      <AddComment user={user} focus={focus} />
+      <div>
+        {comments.map((comment) => (
+          <SingleComment
+            key={comment.id}
+            username={comment.username}
+            userpic={comment.userpic}
+            text={comment.text}
+          />
+        ))}
+      </div>
+      <AddComment user={user} comments={comments} postid={id} focus={focus} />
     </div>
   );
 }

@@ -20,8 +20,6 @@ function Home({ history }) {
         history.push("/login");
       }
     });
-
-    console.log(user);
   });
 
   return (

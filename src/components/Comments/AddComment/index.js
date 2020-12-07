@@ -6,11 +6,27 @@ import SentimentSatisfiedOutlinedIcon from "@material-ui/icons/SentimentSatisfie
 import CameraAltOutlinedIcon from "@material-ui/icons/CameraAltOutlined";
 import GifOutlinedIcon from "@material-ui/icons/GifOutlined";
 import SportsEsportsOutlinedIcon from "@material-ui/icons/SportsEsportsOutlined";
+import db from "../../../firebase";
 
-const AddComment = ({ user, focus }) => {
+const AddComment = ({ user, focus, postid, comments }) => {
   const [comment, setComment] = useState("");
+  console.log(user);
 
   const InputRef = useRef(null);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    let newComment = {
+      username: user.displayName,
+      userpic: user.photoURL,
+      text: comment,
+    };
+    setComment("");
+    let commentDoc = db.collection("posts").doc(postid);
+    commentDoc.update({
+      comments: [...comments, newComment],
+    });
+  };
 
   useEffect(() => {
     // eslint-disable-next-line no-unused-expressions
@@ -27,14 +43,22 @@ const AddComment = ({ user, focus }) => {
       <Avatar className="comment__avatar" src={user.photoURL} />
 
       <div className="comment__inputIcons">
-        <input
-          ref={InputRef}
-          className="comment__input"
-          value={comment}
-          onChange={handleComment}
-          placeholder="Write a comment"
-        />
-
+        <form>
+          <input
+            ref={InputRef}
+            className="comment__input"
+            value={comment}
+            onChange={handleComment}
+            placeholder="Write a comment"
+          />
+          <button
+            style={{ display: "none" }}
+            onClick={handleSubmit}
+            type="submit"
+          >
+            Hidden Submit
+          </button>
+        </form>
         <div className="comment__iconSection">
           <div className="comment__icons">
             <SentimentSatisfiedOutlinedIcon />
