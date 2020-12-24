@@ -1,4 +1,6 @@
-[![Visits Badge](https://badges.pufler.dev/visits/ammarjussa/facebook-clone)](https://badges.pufler.dev)
+https://badges.pufler.dev/visits/{ammarjussa}/{facebook-clone}
+
+
 
 
 
