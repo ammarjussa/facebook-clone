@@ -1,5 +1,4 @@
 [![HitCount](http://hits.dwyl.com/ammarjussa/facebook-clone.svg)](http://hits.dwyl.com/ammarjussa/facebook-clone)
-[![GitHub last commit](https://img.shields.io/github/last-commit/ammarjussa/facebook-clone?style=flat)]()
 
 
 
