@@ -1,4 +1,4 @@
-![GitHub commit](https://img.shields.io/github/last-commit/ammarjussa/facebook-clone.svg)
+![GitHub commit](https://img.shields.io/github/last-commit/ammarjussa/facebook-clone)
 
 
 
