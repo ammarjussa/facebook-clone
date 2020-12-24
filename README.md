@@ -15,11 +15,6 @@
 
 ![Facebook Demo](https://github.com/ammarjussa/facebook-clone/blob/master/facebook_demo.gif)
 
- [![react](./src/react.svg)](https://aleen42.github.io/badges/src/react.svg)
- [![javascript](./src/javascript.svg)](https://aleen42.github.io/badges/src/javascript.svg)
- 
- <a href="https://github.com/badges/shields/pulse" alt="Activity">
-        <img src="https://img.shields.io/github/commit-activity/m/badges/shields" /></a>
 
 
 ## Available Scripts
