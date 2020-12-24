@@ -17,10 +17,15 @@
 
 In the project directory, you can run:
 
-### `yarn start`
+`yarn`
+`yarn start`
 
 Runs the app in the development mode.<br />
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## Description:
+
+- Login using emailID and password as well as Google SignUp functionality.
+- User is able to post new feed and also add a url for any image.
+- User can also like the post and comment on it.
+- More functionalities are coming soon.
