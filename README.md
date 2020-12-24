@@ -1,3 +1,7 @@
+<p align="center">
+ [![Visits Badge](https://badges.pufler.dev/visits/ammarjussa/facebook-clone)](https://badges.pufler.dev)
+</p>
+
 ## Find project at https://facebook-clone-26265.web.app/
 
 
