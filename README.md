@@ -11,6 +11,7 @@
 
 ## Find project at https://facebook-clone-26265.web.app/
 
+![Facebook Demo](https://github.com/ammarjussa/facebook-clone/blob/master/facebook_demo.gif)
 
 ## Available Scripts
 
