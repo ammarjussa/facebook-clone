@@ -1,4 +1,4 @@
-[![Updated Badge](https://badges.pufler.dev/updated/puf17640/git-badges)](https://badges.pufler.dev)
+![GitHub commit](https://img.shields.io/github/last-commit/ammarjussa/facebook-clone.svg)
 
 
 
