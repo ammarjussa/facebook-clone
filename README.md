@@ -30,3 +30,8 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 - User is able to post new feed and also add a url for any image.
 - User can also like the post and comment on it.
 - More functionalities are coming soon.
+
+## Issues:
+
+- Project is not responsive to multiple screens for now.
+- 
