@@ -22,10 +22,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ## Description:
 
-- A simple clone of Facebook involving newsfeed functionalities.
-- Login using emailID and password as well as Google SignUp functionality.
-- User is able to post new feed and also add a url for any image.
-- User can also like the post and comment on it.
+A simple clone of Facebook involving newsfeed functionalities. Log in using email and password as well as Google SignUp functionality. The user is able to post a new feed and also add a URL for any image. Users can also like the post and comment on that specific post.
 
 ## Tools Used
 <a href="https://reactjs.org/" target="_blank"> <img src="https://devicons.github.io/devicon/devicon.git/icons/react/react-original-wordmark.svg" alt="react" width="40" height="40"/> </a> <a href="https://firebase.google.com/" target="_blank"> <img src="https://www.vectorlogo.zone/logos/firebase/firebase-icon.svg" alt="firebase" width="40" height="40"/> </a>
